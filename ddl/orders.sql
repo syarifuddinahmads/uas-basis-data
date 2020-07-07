@@ -1,0 +1,22 @@
+create table orders(
+    id_order integer not null,
+    date_order timestamp,
+    quantity_order integer,
+    amount_order decimal(19,0),
+    grand_total_order decimal(19,0),
+    order_status integer,
+    order_type integer,
+    payment_type integer,
+    payment_status integer,
+    created_by integer,
+    modified_by integer,
+    created_at timestamp,
+    modified_at timestamp,
+    constraint pk_order primary key(id_order),
+    constraint fk_order_status foreign key(order_status) references order_status(id_order_status),
+    constraint fk_order_type foreign key(order_type) references order_type(id_order_type),
+    constraint fk_payment_status foreign key(payment_status) references payment_status(id_payment_status),
+    constraint fk_payment_type foreign key(payment_type) references payment_type(id_payment_type),
+    constraint fk_created_by foreign key(created_by) references users(id_user),
+    constraint fk_modified_by foreign key(modified_by) references users(id_user)
+);
