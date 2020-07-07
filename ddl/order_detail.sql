@@ -1,7 +1,7 @@
 create table order_detail(
     id_order_detail integer,
     id_order integer,
-    id_coffe_order integer,
+    id_coffe integer,
     quantity_order_detail integer,
     amount_order_detail decimal(19,0),
     created_at timestamp,
